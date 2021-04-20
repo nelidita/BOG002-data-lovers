@@ -1,6 +1,4 @@
-import { filtrarRoles } from './data.js';
-// import { encontrarIdChampions } from './data.js';
-// import { filtrarDificultad } from './data.js';
+import { filtrarRoles, encontrarIdChampions, ordenandoAlfabeticamente, filtrarDificultad } from './data.js';
 import data from './data/lol/lol.js';
 
 
@@ -22,20 +20,12 @@ let convertToArray = function (object) {
 //Creando un array de los nombres e imágenes de cada campeón.
 let arrayAllChampions = convertToArray(allChampions);
 
-//Creando arrays de cada item que posee información del campeón.
-let arrayNames = [];
-let arrayImg = [];
-for (let j = 0; j < arrayAllChampions.length; j++) {
-    arrayNames.push(arrayAllChampions[j].name);
-    arrayImg.push(arrayAllChampions[j].img);
-}
-
 //Accediendo al div creando en html para insertar los nombres e imágenes de cada campeón.
 let imgAndNameChampions = document.getElementById("root");
 
 //Creando un array con los nombres y las imágenes juntos de cada campeón.
 let imprimiendoCampeones = function (arrayAllChampions) {
-    
+
     imgAndNameChampions.innerHTML = ""; //Se crea un .innerHTML vacío, para que cuando se filtre por orden alfabetico no se sobreeescriban todo los campeones de nuevo.
 
     for (let l = 0; l < arrayAllChampions.length; l++) {
@@ -62,47 +52,6 @@ let imprimiendoCampeones = function (arrayAllChampions) {
     }
 }
 imprimiendoCampeones(arrayAllChampions);
-
-//Trayendo el "id" donde se selecciona el tipo de orden alfabetico
-let filtrarAlfabeticamente = document.getElementById("ordenAlfabetico");
-
-//Creando función para ordenar los Campeones de la A-Z y de Z-A.
-function ordenandoAlfabeticamente(valueSelect, arrayAllChampions) {
-    let opcionSeleccionada = valueSelect;
-    console.log(opcionSeleccionada);
-    if (opcionSeleccionada == 0) {
-        let ordenandoAZ = arrayAllChampions.sort((a, b) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) return -1;
-            if (a.name.toLowerCase() > b.name.toLowerCase()) return 1;
-            console.log(ordenandoAZ);
-            return 0;
-        })
-        return ordenandoAZ;
-    }
-
-    if (opcionSeleccionada == 1) {
-        let ordenandoZA = arrayAllChampions.sort((a, b) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) return 1;//Para ordenarlo de la Z-A invertimos el 1 y -1 del orden anterior.
-            if (a.name.toLowerCase() > b.name.toLowerCase()) return -1;
-            console.log(ordenandoZA);
-            return 0;
-        })
-        return ordenandoZA
-    }
-
-};
-// ordenandoAlfabeticamente(valueSelect, arrayAllChampions)
-
-
-//Función que muestra las imágenes y nombres de los campeones ordenados alfabeticamente.
-function mostrarCampeonesOrdenadosAlfabeticamente() {
-    let ordenSeleccionado = filtrarAlfabeticamente.selectedIndex;
-    const campeonesOrdenados = ordenandoAlfabeticamente(ordenSeleccionado, arrayAllChampions);
-    console.log(campeonesOrdenados);
-    imprimiendoCampeones(campeonesOrdenados);
-}
-
-filtrarAlfabeticamente.addEventListener("change", mostrarCampeonesOrdenadosAlfabeticamente);
 
 //Creando las tarjetas de estadisticas de cada campeón.
 let containerInfoChampions = document.getElementById("infoChampions");
@@ -183,22 +132,13 @@ let tarjetaEstadisticas = function (infoCampeon) {
     containerStatistics.appendChild(pStats);
 }
 
-//Hacer que cuando el usuario le de click a la imagen del campeón le muestre la tarjeta de estadísticas de cada uno de ellos.
-let encontrarIdChampions = function (event,arrayAllChampions) {
-    let buscandoChampion = event.currentTarget.id;
-    let buscando = arrayAllChampions.find(elemento => elemento.name == buscandoChampion);
-    return buscando;
-}
-
+//Función que muestra la tarjeta de estadisticas según el ID del campeón al que se le hizo click.
 function mostrarInfoCampeon(event) {
     const infoCampeon = encontrarIdChampions(event, arrayAllChampions);
-    console.log(infoCampeon);
     tarjetaEstadisticas(infoCampeon)
 }
 
-
-
-//Función para mostrar el inicio y las tarjetas se oculten
+//Función para mostrar el inicio y las tarjetas de estadisticas se oculten.
 function mostrarInicio() {
     document.getElementById("root").style.display = "flex";
     document.getElementById("infoChampions").style.display = "none";
@@ -215,12 +155,26 @@ let mostrarCampeonesFiltradosRol = function (event) {
     imprimiendoCampeones(campeonesFiltradosPorRol);
 }
 
+//Función que muestra las imágenes y nombres de los campeones ordenados alfabeticamente.
+let filtrarAlfabeticamente = document.getElementById("ordenAlfabetico"); //Trayendo el "id" donde el usuario selecciona el tipo de orden alfabetico
+function mostrarCampeonesOrdenadosAlfabeticamente() {
+    let ordenSeleccionado = filtrarAlfabeticamente.selectedIndex;
+    const campeonesOrdenados = ordenandoAlfabeticamente(ordenSeleccionado, arrayAllChampions);
+    console.log(campeonesOrdenados);
+    imprimiendoCampeones(campeonesOrdenados);
+}
+filtrarAlfabeticamente.addEventListener("change", mostrarCampeonesOrdenadosAlfabeticamente);//Evento que hace que al cambiar la opción de la selección se ejecute la función según el mismo.
+
+
 //Función que muestra los campeones filtrados por dificultad.
-// let difficultySelect = document.getElementById("difficulty");
-// let valueSelectDifficulty = difficultySelect.selectedIndex;
-// let mostrandoCampeonesPorDificultad = function () {
-//     let campeonesFiltradosPorDificultad = filtrarDificultad (valueSelectDifficulty,arrayAllChampions);
-// }
+let difficultySelect = document.getElementById("difficulty"); //Trayendo el "id" del select de Dificultad.
+
+let mostrandoCampeonesOrdenadosPorDificultad = function () {
+    let valueSelectDifficulty = difficultySelect.selectedIndex;
+    let campeonesFiltradosPorDificultad = filtrarDificultad(valueSelectDifficulty, arrayAllChampions);
+    imprimiendoCampeones (campeonesFiltradosPorDificultad);
+}
+difficultySelect.addEventListener("change", mostrandoCampeonesOrdenadosPorDificultad);
 
 //Cuando el usuario haga click en el icono de los roles, muestre los campeones del rol seleccionado
 let llamandoBotonLuchadores = document.getElementById("Fighter");
@@ -236,6 +190,4 @@ llamandoBotonTirador.addEventListener("click", mostrarCampeonesFiltradosRol);
 llamandoBotonSoporte.addEventListener("click", mostrarCampeonesFiltradosRol);
 llamandoBotonTanques.addEventListener("click", mostrarCampeonesFiltradosRol);
 
-
-console.log(arrayAllChampions);
 console.log(filtrarRoles, data);
