@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <title>Data Lovers - League of Legends</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header></header>
+  <div id="rolesDeCampeon">
+    <div id = "Fighter" class="rol">
+      <img src="img/luchadores.png" alt="luchadores">
+      <p>Luchadores</p>
+    </div>
+    <div id = "Assassin" class="rol">
+      <img src="img/asesino.png" alt="asesinos">
+      <p>Asesinos</p>
+    </div>
+    <div id = "Mage" class="rol">
+      <img src="img/mago.png" alt="magos">
+      <p>Magos</p>
+    </div>
+    <div id="Marksman" class="rol">
+      <img src="img/tirador.png" alt="tirador">
+      <p>Tirador</p>
+    </div>
+    <div id="Support" class="rol">
+      <img src="img/soporte.png" alt="soporte">
+      <p>Soportes</p>
+    </div>
+    <div id="Tank" class="rol">
+      <img src="img/tanque.png" alt="tanques">
+      <p>Tanques</p>
+    </div>
+  </div>
+  <div id="lineaDecorativa"><hr></div>
+  <div id="Filtrado">
+    <label for="ordenAlfabetico">Filtrar por orden alfabetico</label>
+    <select name="ordenAlfabetico" id="ordenAlfabetico">
+      <option value="A-Z">A-Z</option>
+      <option value="Z-A">Z-A</option>
+    </select>
+    <label for="dificultad">Filtrar por dificultad</label>
+    <select name="dificultad" id="difficulty">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+    </select>
+  </div>
+  <!--Div creado para agregar los nombres e imagenes de cada campeón-->
+  <div id="root"></div>
+  <div id="infoChampions">
+    <button id="volver">Volver</button>
+  </div>
+  <script src="main.js" type="module"></script>
+  <footer></footer>
+</body>
+
+</html>
