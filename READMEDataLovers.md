@@ -35,4 +35,7 @@ En las siguientes imágenes se puede observar el mismo.
 ![WhatsApp Image 2021-04-25 at 5 33 52 PM](https://user-images.githubusercontent.com/76055597/116011984-66797480-a5ed-11eb-94ce-4cb015a5c91c.jpeg)
 ![WhatsApp Image 2021-04-25 at 5 33 22 PM](https://user-images.githubusercontent.com/76055597/116011985-6bd6bf00-a5ed-11eb-86fd-db4239e88124.jpeg)
 
-
+## Prototipo de alta fidelidad
+Se realizaron iteraciones con varios usuarios y se incorporaron mejoras y correcciones y se procesió a realizar el prototipo de alta fidelidad,
+en el siguiente link de Figma se puede apreciar.
+https://www.figma.com/file/Aq5vkw7SPYv5nLp5kl7b3K/Untitled?node-id=0%3A1
