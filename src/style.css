@@ -2,15 +2,26 @@
     margin: 0;
     padding: 0;
 }
+
 body {
     background-color: white;
     font-family: 'Aldrich', sans-serif;
 }
+header{
+    text-align: center;
+}
+#banner{
+    width: 100%;
+    height: 150px;
+}
+#logo{
+    width: 12%;
+}
+
 #rolesDeCampeon{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    margin: 10px;
     margin-left: 100px;
     margin-right: 100px;
     cursor: pointer;
@@ -53,12 +64,46 @@ body {
     margin: 10px;
     cursor: pointer;
 }
-
+#infoChampions{
+width: 100%;
+margin: 40px;
+text-align: webkit-center;;
+}
+.containerStatistics{
+    width: 1100px;
+}
+.containerStatistics img{
+    width: 80%;
+}
 #volver{
     background-color: rgb(39, 37, 37);
+    font-family: inherit;
     color: white;
-    border: 2px solid #5ebddd;
+    border: 2px #5ebddd;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 10px;
 }
-/* #volver: hover{
-
-} */
+footer{
+    background-color: black;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+footer img{
+    margin-top: 15px;
+    width: 100px;
+}
+footer p{
+    color: white;
+    font-size: 16px;
+}
+#redes{
+    margin: 10px;
+}
+/* @media screen and (max-width: 640px) {
+    .menu {
+      
+    }
+  } */

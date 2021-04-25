@@ -160,7 +160,6 @@ let filtrarAlfabeticamente = document.getElementById("ordenAlfabetico"); //Traye
 function mostrarCampeonesOrdenadosAlfabeticamente() {
     let ordenSeleccionado = filtrarAlfabeticamente.selectedIndex;
     const campeonesOrdenados = ordenandoAlfabeticamente(ordenSeleccionado, arrayAllChampions);
-    console.log(campeonesOrdenados);
     imprimiendoCampeones(campeonesOrdenados);
 }
 filtrarAlfabeticamente.addEventListener("change", mostrarCampeonesOrdenadosAlfabeticamente);//Evento que hace que al cambiar la opción de la selección se ejecute la función según el mismo.
@@ -189,5 +188,3 @@ llamandoBotonMagos.addEventListener("click", mostrarCampeonesFiltradosRol);
 llamandoBotonTirador.addEventListener("click", mostrarCampeonesFiltradosRol);
 llamandoBotonSoporte.addEventListener("click", mostrarCampeonesFiltradosRol);
 llamandoBotonTanques.addEventListener("click", mostrarCampeonesFiltradosRol);
-
-console.log(filtrarRoles, data);
