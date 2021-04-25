@@ -26,4 +26,4 @@ usar en ese momento y línea o roll que desee jugar.
 
 ## Historias de usuario
 Este proyecto se realizó en un total de 6 historias de usuario, las cuales se pueden visualizar en el siguiente link de Trello.
-[https://trello.com/b/STSeLpWG/datalover]
+https://trello.com/b/STSeLpWG/datalover
