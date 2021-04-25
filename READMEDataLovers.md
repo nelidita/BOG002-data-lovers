@@ -38,4 +38,12 @@ En las siguientes imágenes se puede observar el mismo.
 ## Prototipo de alta fidelidad
 Se realizaron iteraciones con varios usuarios y se incorporaron mejoras y correcciones y se procesió a realizar el prototipo de alta fidelidad,
 en el siguiente link de Figma se puede apreciar.
+
 https://www.figma.com/file/Aq5vkw7SPYv5nLp5kl7b3K/Untitled?node-id=0%3A1
+
+## Testeos de usabilidad
+
+En el proceso de realización del proyecto se realizaron test de usabilidad con usuarios y se incorporaron algunas correcciones.
+
+ * Incorporar un botón de "volver" en las tarjetas de estadísticas de los campeones, para volver al inicio nuevamente.
+ * Se agrego un filtro por dificultad, ya que los usuarios novatos necesitan conocer con que campeones puedne comenzar a jugar y dejar los de mayor dificultad para luego, pero igual conocerlos a profundidad.
